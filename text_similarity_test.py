@@ -9,3 +9,9 @@ def test_0_case():
 def test_1_case():
     rg = RatingGenerator()
     assert rg.rate(["string"], ["string"])==1
+
+#Test for intermediate case, the algorithm should return a value between 1 and 0 when the lists are not identical but have some matching
+def test_inbetween_case():
+    rg = RatingGenerator()
+    assert rg.rate(["string", "A"], ["string", "B"])<1
+    assert rg.rate(["string", "A"], ["string", "B"])>0
