@@ -2,6 +2,7 @@ class RatingGenerator():
     def __init__(self, rating=0):
         self.rating = rating
 
-    def rate(self, dict1, dict2):
+    def rate(self, list1, list2):
+        if list1==list2:
+            self.rating = 1
         return self.rating
-        
