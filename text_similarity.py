@@ -16,13 +16,27 @@ class RatingGenerator():
         total_items = len(list1)
         return score / total_items
 
+    #Adding a computation that gives higher ratings to unordered but similar lists
+    def set_rating(self, list1, list2):
+        set1 = set(list1)
+        set2 = set(list2)
+
+        rating=0
+        if set1 == set2:
+            rating = 1
+        else:
+            rating = float(len(set1.intersection(set2)))/len(set1.union(set2))
+
+        return rating
+
     def rate(self, list1, list2):
         #If the lists are identical, give a rating of 1
         if list1==list2:
             self.rating = 1
         #If the lists are not identical, score by the ratio of identical words (same word, same place in the list) to non-identical words
         else:
-            self.rating = self.simple_word_by_word_rating(list1, list2)
+            #Use the average of various rating methods
+            self.rating = (self.simple_word_by_word_rating(list1, list2) + self.set_rating(list1, list2)) / 2.0
 
         #print(self.rating)
         return self.rating
