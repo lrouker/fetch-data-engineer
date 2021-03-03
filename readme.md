@@ -28,3 +28,5 @@ The app will respond with a score for the similarity of the two texts submitted 
 * What type of data structures should be used? (Hint: Dictionaries and lists are particularly helpful data structures that can be leveraged to calculate the similarity of two pieces of text.)  _I've used lists and sets here._
 
 I've enjoyed this exercise greatly, and there are dozens of ways to solve this problem.  I stuck to simple solutions due to the limitation on pulling in libraries, but if I could have any library I wanted, I likely would have pulled in numpy and nltk to do more sophisticated matching.  Ideally, I would enjoy developing a solution which takes sentiment into account when scoring the similarity of two phrases.  I look forward to getting feedback on this solution!
+
+Also, looks like all the commits for this were made from my cscc-luke-rouker account.  Oops!  That is also me, that happens to be the account I use for developing content at Columbus State.  
