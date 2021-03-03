@@ -1,6 +1,6 @@
 **To run this app:**
 
-This app is containerized, so you can run it on any machine which has docker installed.  Run this command to build the image:
+This app is containerized, so you can run it on any machine which has docker installed.  From the root of this repo, run this command to build the image:
 ```
 $docker build --pull --rm -f "Dockerfile.dockerfile" -t fetch:latest "."
 ```
