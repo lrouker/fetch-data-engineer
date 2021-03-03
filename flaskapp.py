@@ -14,3 +14,6 @@ def handle_texts():
     rg = RatingGenerator()
 
     return str(rg.rate(list1, list2))
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
