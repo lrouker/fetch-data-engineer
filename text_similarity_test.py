@@ -53,3 +53,8 @@ def test_string_to_list_no_punctuation():
     actual = text_parser.text_to_list("This is a string")
     expected = ["This", "is", "a", "string"]
     assert actual == expected
+
+def test_string_to_list_punctuation():
+    actual = text_parser.text_to_list("This, is a string!")
+    expected = ["This", "is", "a", "string"]
+    assert actual == expected
