@@ -1,4 +1,5 @@
 import pytest  
+import text_parser
 from text_similarity import RatingGenerator
 
 #Test for basic requirements of prompt, text which matches exactly has rating of 1, text which "has no words in common" has rating of 0
@@ -46,3 +47,9 @@ def test_unordered_non_similar_strings():
     rating_similar = rg.rate(["string1", "string3", "string4"], ["string3", "string1"])
     rating_not_similar = rg.rate(["string1", "string2", "string3"], ["string5", "string1"])
     assert rating_similar > rating_not_similar
+
+#Tests for string parsing
+def test_string_to_list_no_punctuation():
+    actual = text_parser.text_to_list("This is a string")
+    expected = ["This", "is", "a", "string"]
+    assert actual == expected

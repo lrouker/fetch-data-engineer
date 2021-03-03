@@ -70,7 +70,5 @@ class RatingGenerator():
             else:
                 self.rating = (simple_rating + set_rating + lev_rating) / 3.0
 
-#        print(self.rating)
+        #print(self.rating)
         return self.rating
-
-
