@@ -58,3 +58,27 @@ def test_string_to_list_punctuation():
     actual = text_parser.text_to_list("This, is a string!")
     expected = ["This", "is", "a", "string"]
     assert actual == expected
+
+#Test to compare similarity between given sample strings
+def test_sample1_sample2_greater_sample1_sample3():
+    f1 = open("sample1.txt", "r")
+    sample1 = f1.read()
+    f1.close()
+    list1 = text_parser.text_to_list(sample1)
+
+    f2 = open("sample2.txt", "r")
+    sample2 = f2.read()
+    f2.close()
+    list2 = text_parser.text_to_list(sample2)
+
+    f3 = open("sample3.txt", "r")
+    sample3 = f3.read()
+    f3.close()
+    list3 = text_parser.text_to_list(sample3)
+
+    rg = RatingGenerator()
+
+    rating12 = rg.rate(list1, list2)
+    rating13 = rg.rate(list1, list3)
+
+    assert rating12 > rating13

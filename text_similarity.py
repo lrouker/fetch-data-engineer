@@ -34,7 +34,7 @@ class RatingGenerator():
     #https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance#Python
     def levenshtein_distance(self, list1, list2):
         if len(list1) < len(list2):
-            return levenshtein_distance(list2, list1)
+            return self.levenshtein_distance(list2, list1)
 
         # now we know list1 is longer than list2
         if len(list2) == 0:
@@ -47,7 +47,7 @@ class RatingGenerator():
             for j, column2 in enumerate(list2):
                 insertions = last_row[j+1] + 1
                 deletions = current_row[j] + 1
-                substitutions = last_row[i] + (column1 != column2)
+                substitutions = last_row[j] + (column1 != column2)
                 current_row.append(min(insertions, deletions, substitutions))
 
         return last_row[-1]
