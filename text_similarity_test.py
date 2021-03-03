@@ -1,7 +1,7 @@
 import pytest  
 from text_similarity import RatingGenerator
 
-#Test for basic requirements of prompt, text which matches exactly has rating of 1, text which does not match at all has rating of 0
+#Test for basic requirements of prompt, text which matches exactly has rating of 1, text which "has no words in common" has rating of 0
 def test_0_case():
     rg = RatingGenerator()
     assert rg.rate(["1"], ["2"]) == 0
@@ -33,3 +33,16 @@ def test_unordered_similar_list():
     rating = rg.rate(["string", "string3"], ["string2", "string"])
     assert rating < 1
     assert rating > 0
+
+#Test comparative simlarity
+def test_ordered_non_similar_strings():
+    rg = RatingGenerator()
+    rating_similar = rg.rate(["string1", "string3", "string4"], ["string1", "string3"])
+    rating_not_similar = rg.rate(["string1", "string2", "string3"], ["string1", "string5"])
+    assert rating_similar > rating_not_similar
+
+def test_unordered_non_similar_strings():
+    rg = RatingGenerator()
+    rating_similar = rg.rate(["string1", "string3", "string4"], ["string3", "string1"])
+    rating_not_similar = rg.rate(["string1", "string2", "string3"], ["string5", "string1"])
+    assert rating_similar > rating_not_similar
